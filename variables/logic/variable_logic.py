@@ -15,7 +15,7 @@ def create_variable_object(nombre):
     variable = Variable()
     variable.name = nombre
     variable.save()
-    return ()
+    return (variable)
 
 
 def get_variable_by_name(name):

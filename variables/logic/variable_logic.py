@@ -7,8 +7,14 @@ def get_variables():
 
 
 def create_variable(form):
-    measurement = form.save()
+    measurement = form.save() # TODO: PORQUE NOS TOCA CREAR LA VARIABLE DESDE LA PAGINA DE MEDICIONES?
     measurement.save()
+    return ()
+
+def create_variable_object(nombre):
+    variable = Variable()
+    variable.name = nombre
+    variable.save()
     return ()
 
 

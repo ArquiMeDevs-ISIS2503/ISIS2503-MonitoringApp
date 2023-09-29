@@ -3,8 +3,6 @@ from sys import path
 from os import environ
 import numpy as np
 import django
-device ={}
-devices: list["dict"] = []
 
 path.append('monitoring/settings.py')
 environ.setdefault('DJANGO_SETTINGS_MODULE', 'monitoring.settings')

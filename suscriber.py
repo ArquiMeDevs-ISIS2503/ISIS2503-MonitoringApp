@@ -20,7 +20,7 @@ def callback(method, body):
         variable, payload['value'], payload['unit'], topic[0] + topic[1])
 
 for i in range(10):
-    variable = get_variable(1)
+    variable = get_variable("medicina")
     value = np.random.randint(0, 20)
     create_device_object(
         variable, value, 'C', 'ML.505')

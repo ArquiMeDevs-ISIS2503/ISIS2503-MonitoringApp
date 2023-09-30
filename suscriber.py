@@ -19,7 +19,7 @@ from sites.services.services_sites import get_site
 print('Iniciando la carga de los 10 devices ...')
 
 for i in range(10):    
-    site = random.choice(site_list)
+    site = get_site(random.choice(site_list))
     active = random.choice([True, False])
     code = random.randint(100, 1000)
     builder = random.choice(builder_list)

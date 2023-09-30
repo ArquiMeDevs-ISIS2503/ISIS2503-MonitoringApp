@@ -23,6 +23,11 @@
 
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <form>
+                        <label>Elija la sede para la que quiere ver los dispositivos activas</label>
+                        <input id="sede" type="text"/>
+                        <btn onclick="sede = document.getElementById('sede').value;">Enviar</btn>
+                    </form>
                     <table class="table table-hover">
                         <thead>
                         <tr style="color:#0E2EB0">
@@ -39,16 +44,18 @@
                         <tbody>
 
                         {% for device in device_list %}
-                        <tr>
-                            <td>{{ device.site.name }}</td>
-                            <td>{{ device.active }}</td>
-                            <td>{{ device.code }}</td>
-                            <td>{{ device.builder }}</td>
-                            <td>{{ device.name }}</td>
-                            <td>{{ device.amount }}</td>
-                            <td>{{ device.type }}</td>
-                            <td>{{ device.dateMaintainance }}</td>
-                        </tr>
+                            {% if device.site.name == sede %}
+                                <tr>
+                                    <td>{{ device.site.name }}</td>
+                                    <td>{{ device.active }}</td>
+                                    <td>{{ device.code }}</td>
+                                    <td>{{ device.builder }}</td>
+                                    <td>{{ device.name }}</td>
+                                    <td>{{ device.amount }}</td>
+                                    <td>{{ device.type }}</td>
+                                    <td>{{ device.dateMaintainance }}</td>
+                                </tr>
+                            {% endif %}
                         {% endfor %}
 
                         </tbody>

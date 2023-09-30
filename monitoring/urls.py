@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('measurements.urls')),
     path('', include('devices.urls')),
     path('', include('variables.urls')),
+    path('', include('sites.urls')),
 ]

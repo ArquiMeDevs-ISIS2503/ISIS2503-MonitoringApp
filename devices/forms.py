@@ -5,17 +5,24 @@ class DeviceForm(forms.ModelForm):
     class Meta:
         model = Device
         fields = [
-            'variable',
-            'value',
-            'unit',
-            'place',
+            'site',
+            'active',
+            'code',
+            'builder',
+            'name',
+            'amount',
+            'type'
+            #'dateMaintainance',
             #'dateTime',
         ]
 
         labels = {
-            'variable' : 'Variable',
-            'value' : 'Value',
-            'unit' : 'Unit',
-            'place' : 'Place',
+            'site' : 'Site',
+            'active' : 'Active',
+            'code' : 'Code',
+            'builder' : 'Builder',
+            'name' : 'Name',
+            'amount' : 'Amount',
+            'type' : 'Type'
             #'dateTime' : 'Date Time',
         }

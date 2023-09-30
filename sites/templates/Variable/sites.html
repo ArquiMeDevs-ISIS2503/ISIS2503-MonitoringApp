@@ -4,14 +4,12 @@
 <div class="content">
     <div class="">
         <div class="page-header-title">
-            <h4 class="page-title">Devices Activos en el momento</h4>
-            <!--- 
+            <h4 class="page-title">Sites</h4>
             <div style="text-align:right;">
                 <button type="button" class="btn btn-success waves-effect waves-light"
-                        onClick=" window.location.href='/devicecreate' " style="text-align:center;">+
+                        onClick=" window.location.href='/sitecreate' " style="text-align:center;">+
                 </button>
             </div>
-            --->
         </div>
     </div>
 
@@ -23,31 +21,18 @@
 
             <div class="panel panel-default">
                 <div class="panel-body">
+
                     <table class="table table-hover">
                         <thead>
                         <tr style="color:#0E2EB0">
-                            <th font color="red">Site</th>
-                            <th>Active</th>
-                            <th>Code</th>
-                            <th>Builder</th>
-                            <th>Name</th>
-                            <th>Amount</th>
-                            <th>Type</th>
-                            <th>Date Maintainance</th>
+                            <th>Site</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        {% for device in device_list %}
+                        {% for site in site_list %}
                         <tr>
-                            <td>{{ device.site.name }}</td>
-                            <td>{{ device.active }}</td>
-                            <td>{{ device.code }}</td>
-                            <td>{{ device.builder }}</td>
-                            <td>{{ device.name }}</td>
-                            <td>{{ device.amount }}</td>
-                            <td>{{ device.type }}</td>
-                            <td>{{ device.dateMaintainance }}</td>
+                            <td>{{ site.name }}</td>
                         </tr>
                         {% endfor %}
 
@@ -66,5 +51,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}

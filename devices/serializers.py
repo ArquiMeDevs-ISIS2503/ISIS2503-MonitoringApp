@@ -5,5 +5,5 @@ from . import models
 class DeviceSerializer(serializers.ModelSerializer):
 
     class Meta:
-        fields = ('id', 'variable', 'value', 'unit', 'place', 'time',)
+        fields = ('id', 'site', 'active', 'code', 'builder', 'builder', 'name', 'amount', 'type', 'dateMaintainance')
         model = models.Device

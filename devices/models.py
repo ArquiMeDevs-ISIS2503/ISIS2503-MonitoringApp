@@ -1,12 +1,16 @@
 from django.db import models
-from variables.models import Variable
+from sites.models import Site
 
 class Device(models.Model):
-    variable = models.ForeignKey(Variable, on_delete=models.CASCADE, default=None)
-    value = models.FloatField(null=True, blank=True, default=None)
-    unit = models.CharField(max_length=50)
-    place = models.CharField(max_length=50)
-    dateTime = models.DateTimeField(auto_now_add=True)
+    
+    site = models.ForeignKey(Site, on_delete=models.CASCADE, default=None)
+    active = models.BooleanField()
+    code = models.IntegerField(null=True, blank=True, default=None)
+    builder = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
+    amount = models.IntegerField(null=True, blank=True, default=None)
+    type = models.CharField(max_length=50)
+    dateMaintainance = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return '%s %s' % (self.value, self.unit)

@@ -12,7 +12,7 @@ def device_list(request):
     }
     return render(request, 'Device/devices.html', context)
 
-def device_list(request):
+def getSede(request):
     devices = get_devices()
     if request.method == 'GET':
         sede = request.GET.get('sede')

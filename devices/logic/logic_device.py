@@ -1,7 +1,7 @@
 from ..models import Device
 
 def get_devices():
-    queryset = Device.objects.all().order_by('-DataMaintainance')
+    queryset = Device.objects.all().order_by('-dateMaintainance')
     return (queryset)
 
 def create_device(form):

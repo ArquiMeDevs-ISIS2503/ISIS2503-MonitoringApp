@@ -12,6 +12,16 @@ def device_list(request):
     }
     return render(request, 'Device/devices.html', context)
 
+def device_list(request):
+    devices = get_devices()
+    if request.method == 'GET':
+        sede = request.GET.get('sede')
+    context = {
+        'device_list': devices,
+        'sede': sede
+    }
+    return render(request, 'Device/devices.html', context)
+
 def device_create(request):
     if request.method == 'POST':
         form = DeviceForm(request.POST)

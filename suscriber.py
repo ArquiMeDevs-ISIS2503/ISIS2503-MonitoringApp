@@ -3,8 +3,7 @@ from sys import path
 from os import environ
 import random
 import django
-from devices.logic.logic_device import create_device_object
-from sites.services.services_sites import get_site
+
 
 site_list = ['Marly', 'Country', 'Santa Fé', 'San Ignacio', 'Policlínica', 'Reina Sofía']
 builder_list = ['LG', 'Metronik', 'Samsung', 'Challenger', 'SuperSanaloTodo']
@@ -14,6 +13,8 @@ path.append('monitoring/settings.py')
 environ.setdefault('DJANGO_SETTINGS_MODULE', 'monitoring.settings')
 django.setup()
 
+from devices.logic.logic_device import create_device_object
+from sites.services.services_sites import get_site
 
 print('Iniciando la carga de los 10 devices ...')
 

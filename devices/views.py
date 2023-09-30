@@ -16,6 +16,7 @@ def getSede(request):
     devices = get_devices()
     if request.method == 'GET':
         sede = request.GET.get('sede')
+        print(sede)
     context = {
         'device_list': devices,
         'sede': sede

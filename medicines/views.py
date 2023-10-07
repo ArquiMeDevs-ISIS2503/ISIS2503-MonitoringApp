@@ -10,7 +10,7 @@ def medicine_list(request):
     context = {
         'medicine_list': medicines
     }
-    return render(request, 'Medicine/medicines.html', context)
+    return render(request, 'Medicine/medicine.html', context)
 
 def medicine_create(request):
     if request.method == 'POST':

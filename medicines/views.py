@@ -17,7 +17,7 @@ def medicine_create(request):
         form = MedicineForm(request.POST)
         print(request)
         print(form)
-        print(request.text)
+        print(request.data)
         if form.is_valid():
             create_medicine(form)
             messages.add_message(request, messages.SUCCESS, 'Successfully created medicine')

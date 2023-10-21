@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .logic.logic_device import create_device, get_devices, get_deviceSede
+from sites.logic.site_logic import get_site_by_name
 
 def device_list(request):
     devices = get_devices()
@@ -15,7 +16,8 @@ def device_list(request):
 def getSede(request):
     if request.method == 'GET':
         sede = request.GET.get('sede')
-        devices = get_deviceSede(sede)
+        sede = get_site_by_name(sede)
+        devices = get_deviceSede(sede.id)
     context = {
         'device_list': devices,
         'sede': sede

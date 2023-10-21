@@ -7,9 +7,8 @@ from .logic.logic_device import create_device, get_devices, get_deviceSede
 from sites.logic.site_logic import get_site_by_name
 
 def device_list(request):
-    devices = get_devices()
     context = {
-        'device_list': devices
+        'device_list': []
     }
     return render(request, 'Device/devices.html', context)
 

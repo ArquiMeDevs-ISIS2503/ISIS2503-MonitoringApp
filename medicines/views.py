@@ -15,9 +15,6 @@ def medicine_list(request):
 def medicine_create(request):
     if request.method == 'POST':
         form = MedicineForm(request.POST)
-        print(request)
-        print(form)
-        print(request.content_params)
         if form.is_valid():
             create_medicine(form)
             messages.add_message(request, messages.SUCCESS, 'Successfully created medicine')

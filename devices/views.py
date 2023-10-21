@@ -3,7 +3,7 @@ from .forms import DeviceForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .logic.logic_device import create_device, get_devices
+from .logic.logic_device import create_device, get_devices, get_deviceSede
 
 def device_list(request):
     devices = get_devices()
@@ -13,10 +13,9 @@ def device_list(request):
     return render(request, 'Device/devices.html', context)
 
 def getSede(request):
-    devices = get_devices()
     if request.method == 'GET':
         sede = request.GET.get('sede')
-        print(sede)
+        devices = get_deviceSede(sede)
     context = {
         'device_list': devices,
         'sede': sede

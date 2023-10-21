@@ -45,18 +45,16 @@
                         <tbody>
                         
                         {% for device in device_list %}
-                            {% if device.site.name == sede %}
-                                <tr>
-                                    <td>{{ device.site.name }}</td>
-                                    <td>{{ device.active }}</td>
-                                    <td>{{ device.code }}</td>
-                                    <td>{{ device.builder }}</td>
-                                    <td>{{ device.name }}</td>
-                                    <td>{{ device.amount }}</td>
-                                    <td>{{ device.type }}</td>
-                                    <td>{{ device.dateMaintainance }}</td>
-                                </tr>
-                            {% endif %}
+                            <tr>
+                                <td>{{ device.site.name }}</td>
+                                <td>{{ device.active }}</td>
+                                <td>{{ device.code }}</td>
+                                <td>{{ device.builder }}</td>
+                                <td>{{ device.name }}</td>
+                                <td>{{ device.amount }}</td>
+                                <td>{{ device.type }}</td>
+                                <td>{{ device.dateMaintainance }}</td>
+                            </tr>
                         {% endfor %}
 
                         </tbody>

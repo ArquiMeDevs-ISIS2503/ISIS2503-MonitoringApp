@@ -1,7 +1,12 @@
 from ..models import Device
 
 def get_devices():
-    queryset = Device.objects.filter(active=True).order_by('-dateMaintainance')
+    queryset = Device.objects.filter(active=True)
+    return (queryset)
+
+
+def get_deviceSede(sede):
+    queryset = Device.objects.filter(active=True,site=sede)
     return (queryset)
 
 def create_device(form):

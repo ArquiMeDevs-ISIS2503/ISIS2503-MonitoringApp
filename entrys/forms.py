@@ -6,14 +6,12 @@ class EntryForm(forms.ModelForm):
         model = Entry
         fields = [
             'startDate',
-            'entryDate',
             'diagnostic',
             'vitalSign',
             'symptom'
         ]
         labels = {
             'startDate': 'Start date',
-            'entryDate': 'Entry date',
             'diagnostic': 'Diagnostic',
             'vitalSign': 'Vital Sign',
             'symptom': 'Symptom'

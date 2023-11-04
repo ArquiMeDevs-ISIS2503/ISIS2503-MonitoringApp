@@ -8,11 +8,9 @@ class EntryForm(forms.ModelForm):
             'startDate',
             'diagnostic',
             'vitalSign',
-            'symptom'
         ]
         labels = {
             'startDate': 'Start date',
             'diagnostic': 'Diagnostic',
             'vitalSign': 'Vital Sign',
-            'symptom': 'Symptom'
         }

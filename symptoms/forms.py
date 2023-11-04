@@ -6,7 +6,9 @@ class SymptomForm(forms.ModelForm):
         model = Symptom
         fields = [
             'description',
+            'entry'
         ]
         labels = {
             'description': 'Description',
+            'entry': 'Entry'
         }

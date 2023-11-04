@@ -28,5 +28,6 @@ urlpatterns = [
     path('', include('diagnostics.urls')),
     path('', include('symptoms.urls')),
     path('', include('vitalSigns.urls')),
+    path('', include('entrys.urls')),
     path('health-check/', views.healthCheck),
 ]

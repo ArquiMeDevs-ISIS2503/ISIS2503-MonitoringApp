@@ -7,13 +7,14 @@ def get_symptoms():
 
 
 def create_symptom(form):
-    measurement = form.save() # TODO: PORQUE NOS TOCA CREAR LA VARIABLE DESDE LA PAGINA DE MEDICIONES?
+    measurement = form.save() 
     measurement.save()
     return ()
 
-def create_symptom_object(description):
+def create_symptom_object(description, entry):
     symptom = Symptom()
     symptom.description = description
+    symptom.entry = entry
     symptom.save()
     return (symptom)
 

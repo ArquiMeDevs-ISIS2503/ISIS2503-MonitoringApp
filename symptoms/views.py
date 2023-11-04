@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .forms import DiagnosticForm
+from .forms import SymptomForm
 from .logic.symptom_logic import get_symptoms, create_symptom
 
 def symptom_list(request):
@@ -10,11 +10,11 @@ def symptom_list(request):
     context = {
         'symptom_list': symptoms
     }
-    return render(request, 'Diagnostic/symptoms.html', context)
+    return render(request, 'Symptom/symptoms.html', context)
 
 def symptom_create(request):
     if request.method == 'POST':
-        form = DiagnosticForm(request.POST)
+        form = SymptomForm(request.POST)
         if form.is_valid():
             create_symptom(form)
             messages.add_message(request, messages.SUCCESS, 'Successfully created symptom')
@@ -22,9 +22,9 @@ def symptom_create(request):
         else:
             print(form.errors)
     else:
-        form = DiagnosticForm()
+        form = SymptomForm()
 
     context = {
         'form': form,
     }
-    return render(request, 'Diagnostic/symptomCreate.html', context)
+    return render(request, 'Symptom/symptomCreate.html', context)

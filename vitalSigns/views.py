@@ -27,4 +27,4 @@ def vitalSign_create(request):
     context = {
         'form': form,
     }
-    return render(request, 'vitalSign/vitalSignCreate.html', context)
+    return render(request, 'VitalSign/vitalSignCreate.html', context)

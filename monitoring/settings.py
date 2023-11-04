@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'sites',
     'medicines',
     'diagnostics',
-    'symptoms'
+    'symptoms',
+    'vitalSigns'
 ]
 
 MIDDLEWARE = [

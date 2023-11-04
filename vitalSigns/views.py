@@ -10,7 +10,7 @@ def vitalSign_list(request):
     context = {
         'vitalSign_list': vitalSigns
     }
-    return render(request, 'vitalSign/vitalSigns.html', context)
+    return render(request, 'VitalSign/vitalSigns.html', context)
 
 def vitalSign_create(request):
     if request.method == 'POST':

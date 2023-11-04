@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'variables',
     'sites',
     'medicines',
-    'diagnostics'
+    'diagnostics',
+    'symptoms'
 ]
 
 MIDDLEWARE = [

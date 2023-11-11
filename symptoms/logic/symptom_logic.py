@@ -7,8 +7,8 @@ def get_symptoms():
 
 
 def create_symptom(form):
-    measurement = form.save() 
-    measurement.save()
+    symptom = form.save() 
+    symptom.save()
     return ()
 
 def create_symptom_object(description, entry):
@@ -26,3 +26,8 @@ def get_symptom_by_description(description):
     except:
         symptom = None
         return (symptom)
+
+
+def get_all_symptoms_by_entry(entryG):
+    queryset = Symptom.objects.filter(entry=entryG)
+    return (queryset)

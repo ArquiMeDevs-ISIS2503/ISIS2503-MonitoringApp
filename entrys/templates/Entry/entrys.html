@@ -7,7 +7,7 @@
             <h4 class="page-title">Entries</h4>
             <div style="text-align:right;">
                 <button type="button" class="btn btn-success waves-effect waves-light"
-                        onClick=" window.location.href='/diagnosticcreate' " style="text-align:center;">+
+                        onClick=" window.location.href='/diagnosticcreate' " style="text-align:center;">
                 </button>
             </div>
         </div>
@@ -39,6 +39,15 @@
                             <td>{{ entry.entryDate }}</td>
                             <td>{{ entry.diagnostic }}</td>
                             <td>{{ entry.vitalSign }}</td>
+                            <td><select name="symptoms" id="symptoms">
+                                {% for symptomE,descriptions in entry_symptoms %}
+                                    {% if symptomE == entry %}
+                                        {% for description in descriptions%}
+                                            <option value="symptom">{{description}}</option>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endfor %}
+                            </select></td>
                         </tr>
                         {% endfor %}
 

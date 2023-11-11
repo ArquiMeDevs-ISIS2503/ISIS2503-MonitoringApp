@@ -21,7 +21,7 @@ def create_medicine_object(nameM,concentrationM,amountM,typeM,codeM,builderM,sit
     medicine.builder = builderM
     medicine.site = site_id
     medicine.save()
-    return ()
+    return (medicine)
 
 
 def get_medicine_by_name(nameM):

@@ -24,4 +24,4 @@ def create_device_object(site_id, active, code, builder, name, amount, type):
     device.amount = amount
     device.type = type
     device.save()
-    return ()
+    return (device)

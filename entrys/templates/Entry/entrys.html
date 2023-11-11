@@ -4,10 +4,10 @@
 <div class="content">
     <div class="">
         <div class="page-header-title">
-            <h4 class="page-title">Medicine</h4>
+            <h4 class="page-title">Entries</h4>
             <div style="text-align:right;">
                 <button type="button" class="btn btn-success waves-effect waves-light"
-                        onClick=" window.location.href='/medicinecreate' " style="text-align:center;">+
+                        onClick=" window.location.href='/symptomcreate' " style="text-align:center;">+
                 </button>
             </div>
         </div>
@@ -25,28 +25,17 @@
                     <table class="table table-hover">
                         <thead>
                         <tr style="color:#0E2EB0">
-                            <th>Name</th>
-                            <th>Site</th>
-                            <th>Code</th>
-                            <th>Builder</th>
-                            <th>Amount</th>
-                            <th>Concentration</th>
-                            <th>Type</th>
-                            <th>dateExpiration</th>
+                            <th>Start Date</th>
+                            <th>Entry Date</th>
+                            
                         </tr>
                         </thead>
                         <tbody>
 
-                        {% for medicine in medicine_list %}
+                        {% for entry in entry_list %}
                         <tr>
-                            <td>{{ medicine.name }}</td>
-                            <td>{{ medicine.site.name }}</td>
-                            <td>{{ medicine.code }}</td>
-                            <td>{{ medicine.builder }}</td>
-                            <td>{{ medicine.amount }}</td>
-                            <td>{{ medicine.concentration }}</td>
-                            <td>{{ medicine.type }}</td>
-                            <td>{{ medicine.dateExpiration }}</td>
+                            <td>{{ entry.startDate }}</td>
+                            <td>{{ entry.entryDate }}</td>
                         </tr>
                         {% endfor %}
 

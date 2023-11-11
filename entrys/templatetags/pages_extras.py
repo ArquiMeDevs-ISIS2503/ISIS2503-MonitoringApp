@@ -5,8 +5,6 @@ register = template.Library()
 
 @register.filter
 def keyvalue(dict, key):
-    print(dict)
-    print(key)
     try:
         return dict[key]
     except KeyError:

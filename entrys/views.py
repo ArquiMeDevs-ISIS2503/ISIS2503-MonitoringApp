@@ -18,7 +18,7 @@ def entry_create(request):
         if form.is_valid():
             create_entry(form)
             messages.add_message(request, messages.SUCCESS, 'Successfully created entry')
-            return HttpResponseRedirect(reverse('symptoms:symptomcreate'))
+            return HttpResponseRedirect(reverse('symptoms:symptomCreate'))
         else:
             print(form.errors)
     else:

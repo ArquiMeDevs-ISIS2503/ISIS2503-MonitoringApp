@@ -18,7 +18,7 @@ def diagnostic_create(request):
         if form.is_valid():
             create_diagnostic(form)
             messages.add_message(request, messages.SUCCESS, 'Successfully created diagnostic')
-            return HttpResponseRedirect(reverse('vitalSigncreate'))
+            return HttpResponseRedirect(reverse('vitalSigns:vitalSigncreate'))
         else:
             print(form.errors)
     else:

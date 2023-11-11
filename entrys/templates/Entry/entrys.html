@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load pages_extras %}
+{% keyvalue as keyvalue %}
 {% block content %}
 
 <div class="content">
@@ -39,7 +41,7 @@
                             <td>{{ entry.entryDate }}</td>
                             <td>{{ entry.diagnostic }}</td>
                             <td>{{ entry.vitalSign }}</td>
-                            <td>{{ entry_symptoms[entry.id] }}</td>
+                            <td>{{dictionary|keyvalue:entry.id}}</td>
                         </tr>
                         {% endfor %}
 

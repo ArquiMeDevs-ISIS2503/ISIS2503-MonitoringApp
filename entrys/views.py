@@ -15,7 +15,7 @@ def entry_list(request):
         for symptom in symptoms:
             description = symptom.description
             symptomsDescriptions.append(description)
-        entrySymptoms[entry] = symptomsDescriptions
+        entrySymptoms[entry.id] = symptomsDescriptions
     context = {
         'entry_list': entrys,
         'entry_symptoms' : entrySymptoms

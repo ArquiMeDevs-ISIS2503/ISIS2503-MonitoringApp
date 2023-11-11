@@ -39,15 +39,12 @@
                             <td>{{ entry.entryDate }}</td>
                             <td>{{ entry.diagnostic }}</td>
                             <td>{{ entry.vitalSign }}</td>
-                            <td><select name="symptoms" id="symptoms">
-                                {% for symptomE,descriptions in entry_symptoms %}
-                                    {% if symptomE == entry %}
-                                        {% for description in descriptions%}
-                                            <option value="symptom">{{description}}</option>
-                                        {% endfor %}
-                                    {% endif %}
+                            <td><select name="description" id="description">
+                                {% for description in entry_symptoms[entry.id] %}
+                                    <option>{{description}}</option>
                                 {% endfor %}
-                            </select></td>
+                            </select>
+                            </td>
                         </tr>
                         {% endfor %}
 

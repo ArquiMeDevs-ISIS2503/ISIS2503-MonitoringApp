@@ -1,7 +1,7 @@
 {% extends 'base.html' %} 
 {% block content %} 
 <form method="POST"> 
-    <h4 class="page-title">Diagnostic</h4>
+    <h4 class="page-title">Entry</h4>
     {% csrf_token %}
     <br>
     {{ form.as_p }} 

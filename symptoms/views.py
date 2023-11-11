@@ -18,7 +18,7 @@ def symptom_create(request):
         if form.is_valid():
             create_symptom(form)
             messages.add_message(request, messages.SUCCESS, 'Successfully created symptom')
-            return HttpResponseRedirect(reverse('symptomCreate'))
+            return HttpResponseRedirect(reverse('symptoms:symptomCreate'))
         else:
             print(form.errors)
     else:

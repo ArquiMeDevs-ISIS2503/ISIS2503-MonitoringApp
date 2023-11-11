@@ -27,7 +27,8 @@
                         <tr style="color:#0E2EB0">
                             <th>Start Date</th>
                             <th>Entry Date</th>
-                            
+                            <th>Diagnostic</th>
+                            <th>Vital Sign</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -36,6 +37,8 @@
                         <tr>
                             <td>{{ entry.startDate }}</td>
                             <td>{{ entry.entryDate }}</td>
+                            <td>{{ entry.diagnostic }}</td>
+                            <td>{{ entry.vitalSign }}</td>
                         </tr>
                         {% endfor %}
 

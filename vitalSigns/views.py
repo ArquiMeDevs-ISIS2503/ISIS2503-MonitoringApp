@@ -18,7 +18,7 @@ def vitalSign_create(request):
         if form.is_valid():
             create_vitalSign(form)
             messages.add_message(request, messages.SUCCESS, 'Successfully created vitalSign')
-            return HttpResponseRedirect(reverse('vitalSignCreate'))
+            return HttpResponseRedirect(reverse('entrycreate'))
         else:
             print(form.errors)
     else:

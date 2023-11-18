@@ -5,7 +5,9 @@ from django.urls import reverse
 from .forms import MedicineForm
 from .logic.medicine_logic import get_medicines, create_medicine
 from monitoring.auth0backend import getRole
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def medicine_list(request):
     role = getRole(request)
     print(role)
@@ -18,6 +20,7 @@ def medicine_list(request):
     else:
         return HttpResponse("Unauthorized User")
 
+@login_required
 def medicine_create(request):
     role = getRole(request)
     print(role)

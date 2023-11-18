@@ -6,7 +6,9 @@ from .forms import EntryForm
 from .logic.entry_logic import get_entrys, create_entry
 from symptoms.logic.symptom_logic import get_all_symptoms_by_entry
 from monitoring.auth0backend import getRole
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def entry_list(request):
     role = getRole(request)
     print(role)
@@ -28,6 +30,7 @@ def entry_list(request):
     else:
         return HttpResponse("Unauthorized User")
 
+@login_required
 def entry_create(request):
     role = getRole(request)
     print(role)

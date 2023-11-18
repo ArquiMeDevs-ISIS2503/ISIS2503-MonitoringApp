@@ -30,7 +30,7 @@ def medicine_create(request):
             if form.is_valid():
                 create_medicine(form)
                 messages.add_message(request, messages.SUCCESS, 'Successfully created medicine')
-                return HttpResponseRedirect(reverse('medicineCreate'))
+                return HttpResponseRedirect(reverse('medicines:medicineCreate'))
             else:
                 print(form.errors)
         else:

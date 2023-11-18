@@ -18,7 +18,7 @@ def site_create(request):
         if form.is_valid():
             create_site(form)
             messages.add_message(request, messages.SUCCESS, 'Successfully created site')
-            return HttpResponseRedirect(reverse('siteCreate'))
+            return HttpResponseRedirect(reverse('sites:siteCreate'))
         else:
             print(form.errors)
     else:

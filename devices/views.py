@@ -29,7 +29,7 @@ def device_create(request):
         if form.is_valid():
             create_device(form)
             messages.add_message(request, messages.SUCCESS, 'Device create successful')
-            return HttpResponseRedirect(reverse('deviceCreate'))
+            return HttpResponseRedirect(reverse('devices:deviceCreate'))
         else:
             print(form.errors)
     else:

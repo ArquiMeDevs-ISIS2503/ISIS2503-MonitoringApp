@@ -8,7 +8,7 @@ from monitoring.auth0backend import getRole
 
 def medicine_list(request):
     role = getRole(request)
-    if role == "Médico":
+    if role == "Medico":
         medicines = get_medicines()
         context = {
             'medicine_list': medicines
@@ -19,7 +19,7 @@ def medicine_list(request):
 
 def medicine_create(request):
     role = getRole(request)
-    if role == "Gerencia Campus":
+    if role == "Medico":
         if request.method == 'POST':
             form = MedicineForm(request.POST)
             if form.is_valid():

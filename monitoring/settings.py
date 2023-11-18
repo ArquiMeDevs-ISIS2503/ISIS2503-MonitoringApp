@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import requests
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -45,7 +46,8 @@ INSTALLED_APPS = [
     'diagnostics',
     'symptoms',
     'vitalSigns',
-    'entrys'
+    'entrys',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +149,20 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'arquisoft2019@gmail.com'
 EMAIL_HOST_PASSWORD = 'xxxxxxxxx'
+
+
+metadata_url = 'http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip'
+metadata_headers = {'Metadata-Flavor': 'Google'}
+
+resp = requests.get(metadata_url, headers=metadata_headers)
+public_ip = resp.text
+
+LOGIN_URL = "/login/auth0" 
+LOGIN_REDIRECT_URL = "/" 
+LOGOUT_REDIRECT_URL = "https://isis2503-arquimedevs.us.auth0.com/v2/logout?returnTo=http%3A%2F%2F" + public_ip + ":8080"
+SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes 
+SOCIAL_AUTH_AUTH0_DOMAIN = 'isis2503-arquimedevs.us.auth0.com' 
+SOCIAL_AUTH_AUTH0_KEY = 'zNThpMiejE023o072vOVRf6wDFpaqMnU' 
+SOCIAL_AUTH_AUTH0_SECRET = 'HlPAwWdxSkemzmvx613_69MHkxbJs_vOCwf3DgpB-IiVQAI2YYRwdLtKS9ydBCkq' 
+SOCIAL_AUTH_AUTH0_SCOPE = [ 'openid', 'profile','email','role', ] 
+AUTHENTICATION_BACKENDS = { 'monitoring.auth0backend.Auth0', 'django.contrib.auth.backends.ModelBackend', }

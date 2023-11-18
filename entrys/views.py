@@ -9,6 +9,7 @@ from monitoring.auth0backend import getRole
 
 def entry_list(request):
     role = getRole(request)
+    print(role)
     if role == "Medico":
         entrys = get_entrys()
         entrySymptoms = {}
@@ -29,6 +30,7 @@ def entry_list(request):
 
 def entry_create(request):
     role = getRole(request)
+    print(role)
     if role == "Medico":
         if request.method == 'POST':
             form = EntryForm(request.POST)

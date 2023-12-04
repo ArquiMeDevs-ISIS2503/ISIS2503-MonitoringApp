@@ -13,7 +13,7 @@ def medicine_list(request):
     role = getRole(request)
     print(role)
     print("request")
-    r = requests.get("http://10.128.0.7:8080/getRole", headers={"Accept":"application/json"})
+    r = requests.post("http://10.128.0.7:8080/getRole", headers={"Accept":"application/json"}, json=request)
     places = r.json()
     print(places)
     if role == "Medico":

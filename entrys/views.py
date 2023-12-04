@@ -5,7 +5,7 @@ from django.urls import reverse
 from .forms import EntryForm
 from .logic.entry_logic import get_entrys, create_entry
 from symptoms.logic.symptom_logic import get_all_symptoms_by_entry
-from monitoring.auth0backend import getRole
+
 from django.contrib.auth.decorators import login_required
 import requests
 import datetime

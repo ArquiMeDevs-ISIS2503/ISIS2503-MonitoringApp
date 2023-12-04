@@ -6,9 +6,13 @@ from .forms import MedicineForm
 from .logic.medicine_logic import get_medicines, create_medicine
 from monitoring.auth0backend import getRole
 from django.contrib.auth.decorators import login_required
+import requests
 
 @login_required
 def medicine_list(request):
+    r = request.get("http://34.133.207.194:8080/getRole", headers={"Accept":"application/json"})
+    places = r.json()
+    print(places)
     role = getRole(request)
     print(role)
     if role == "Medico":

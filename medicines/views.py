@@ -7,13 +7,14 @@ from .logic.medicine_logic import get_medicines, create_medicine
 from monitoring.auth0backend import getRole
 from django.contrib.auth.decorators import login_required
 import requests
+import json
 
 @login_required
 def medicine_list(request):
     role = getRole(request)
     print(role)
     print("request")
-    r = requests.post("http://10.128.0.7:8080/getRole", headers={"Accept":"application/json"}, json=request)
+    r = requests.post("http://10.128.0.7:8080/getRole", headers={"Accept":"application/json"}, json=json.loads(request.body.decode('utf-8')))
     places = r.json()
     print(places)
     if role == "Medico":

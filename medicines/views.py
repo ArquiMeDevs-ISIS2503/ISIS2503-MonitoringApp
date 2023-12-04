@@ -10,11 +10,12 @@ import requests
 
 @login_required
 def medicine_list(request):
-    r = request.get("http://10.128.0.7:8080/getRole", headers={"Accept":"application/json"})
-    places = r.json()
-    print(places)
     role = getRole(request)
     print(role)
+    print("request")
+    r = requests.get("http://10.128.0.7:8080/getRole", headers={"Accept":"application/json"})
+    places = r.json()
+    print(places)
     if role == "Medico":
         medicines = get_medicines()
         context = {

@@ -30,7 +30,9 @@ class Auth0(BaseOAuth2):
 
 def getRole(request):
     user = request.user
+    print(user)
     auth0user = user.social_auth.get(provider="auth0")
+    print(auth0user)
     accessToken = auth0user.extra_data['access_token']
     url = "https://isis2503-arquimedevs.us.auth0.com/userinfo"
     headers = {'authorization': 'Bearer ' + accessToken}

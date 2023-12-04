@@ -7,11 +7,19 @@ from .logic.entry_logic import get_entrys, create_entry
 from symptoms.logic.symptom_logic import get_all_symptoms_by_entry
 from monitoring.auth0backend import getRole
 from django.contrib.auth.decorators import login_required
+import requests
+import datetime
+import json
 
+def json_default(value):
+    if isinstance(value, datetime.date):
+        return dict(year=value.year, month=value.month, day=value.day)
+    else:
+        return value.__dict__
+    
 @login_required
 def entry_list(request):
-    role = getRole(request)
-    print(role)
+    role = requests.post("http://10.128.0.7:8080/getRole/", headers={"Accept":"application/json"}, json=json.dumps(request.user.social_auth.get(provider="auth0"), default=json_default, sort_keys=True, indent=4)).text
     if role == "Medico":
         entrys = get_entrys()
         entrySymptoms = {}
@@ -32,8 +40,7 @@ def entry_list(request):
 
 @login_required
 def entry_create(request):
-    role = getRole(request)
-    print(role)
+    role = requests.post("http://10.128.0.7:8080/getRole/", headers={"Accept":"application/json"}, json=json.dumps(request.user.social_auth.get(provider="auth0"), default=json_default, sort_keys=True, indent=4)).text
     if role == "Medico":
         if request.method == 'POST':
             form = EntryForm(request.POST)

@@ -1,16 +1,29 @@
 from django.shortcuts import render
 from .forms import DeviceForm
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from .logic.logic_device import create_device, get_devices, get_deviceSede
 from sites.logic.site_logic import get_site_by_name
+import requests
+import datetime
+import json
 
+def json_default(value):
+    if isinstance(value, datetime.date):
+        return dict(year=value.year, month=value.month, day=value.day)
+    else:
+        return value.__dict__
+    
 def device_list(request):
-    context = {
-        'device_list': []
-    }
-    return render(request, 'Device/devices.html', context)
+    role = requests.post("http://10.128.0.7:8080/getRole/", headers={"Accept":"application/json"}, json=json.dumps(request.user.social_auth.get(provider="auth0"), default=json_default, sort_keys=True, indent=4)).text
+    if role == "Medico":
+        context = {
+            'device_list': []
+        }
+        return render(request, 'Device/devices.html', context)
+    else:
+        return HttpResponse("Unauthorized User")
 
 def getSede(request):
     if request.method == 'GET':

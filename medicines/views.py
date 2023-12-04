@@ -10,7 +10,7 @@ import requests
 
 @login_required
 def medicine_list(request):
-    r = request.get("http://34.133.207.194:8080/getRole", headers={"Accept":"application/json"})
+    r = request.get("http://10.128.0.7:8080/getRole", headers={"Accept":"application/json"})
     places = r.json()
     print(places)
     role = getRole(request)

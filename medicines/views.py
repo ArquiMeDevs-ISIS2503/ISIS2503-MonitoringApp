@@ -8,10 +8,18 @@ from monitoring.auth0backend import getRole
 from django.contrib.auth.decorators import login_required
 import requests
 import json
+import datetime
 
+def json_default(value):
+    if isinstance(value, datetime.date):
+        return dict(year=value.year, month=value.month, day=value.day)
+    else:
+        return value.__dict__
+    
 @login_required
 def medicine_list(request):
-    r = requests.post("http://10.128.0.7:8080/getRole", headers={"Accept":"application/json"}, json=json.dumps(request.user))
+    r = requests.post("http://10.128.0.7:8080/getRole", headers={"Accept":"application/json"}, json=json.dumps(request.user, default=json_default, 
+            sort_keys=True, indent=4))
     role = r.json()
     print(role)
     if role == "Medico":

@@ -16,7 +16,10 @@ def getSede(request):
     if request.method == 'GET':
         sede = request.GET.get('sede')
         sede = get_site_by_name(sede)
-        devices = get_deviceSede(sede.id)
+        devices = []
+        if sede is not None:
+            devices = get_deviceSede(sede.id)
+        
     context = {
         'device_list': devices,
         'sede': sede

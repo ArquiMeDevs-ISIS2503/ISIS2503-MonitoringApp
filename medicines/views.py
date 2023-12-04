@@ -18,7 +18,7 @@ def json_default(value):
     
 @login_required
 def medicine_list(request):
-    r = requests.post("http://10.128.0.7:8080/getRole", headers={"Accept":"application/json"}, json=json.dumps(request.user.social_auth.get(provider="auth0"), default=json_default, sort_keys=True, indent=4))
+    r = requests.post("http://10.128.0.7:8080/getRole/", headers={"Accept":"application/json"}, json=json.dumps(request.user.social_auth.get(provider="auth0"), default=json_default, sort_keys=True, indent=4))
     role = r.text
     if role == "Medico":
         medicines = get_medicines()

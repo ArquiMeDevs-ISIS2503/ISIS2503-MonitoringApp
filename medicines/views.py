@@ -4,7 +4,6 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from .forms import MedicineForm
 from .logic.medicine_logic import get_medicines, create_medicine
-from monitoring.auth0backend import getRole
 from django.contrib.auth.decorators import login_required
 import requests
 import json

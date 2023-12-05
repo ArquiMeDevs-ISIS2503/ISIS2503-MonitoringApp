@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     #path('', include('measurements.urls')),
-    path('', include(('devices.urls','devices_'), namespace='devices_')),
+    path('', include(('devices.urls','devicess'), namespace='devices')),
     path('', include(('variables.urls','variables'), namespace='variables')),
     path('', include(('sites.urls','sites'), namespace='sites')),
     path('', include(('medicines.urls','medicines'), namespace='medicines')),

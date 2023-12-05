@@ -56,3 +56,21 @@ def device_create(request):
     }
 
     return render(request, 'Device/deviceCreate.html', context)
+
+def create_device(request):
+    if request.method == 'POST':
+        form = DeviceForm(request.POST)
+        if form.is_valid():
+            create_device(form)
+            messages.add_message(request, messages.SUCCESS, 'Device create successful')
+            return HttpResponseRedirect(reverse('devices:deviceCreate'))
+        else:
+            print(form.errors)
+    else:
+        form = DeviceForm()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'Device/create_device.html', context)

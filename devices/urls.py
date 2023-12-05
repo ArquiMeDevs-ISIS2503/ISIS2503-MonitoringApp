@@ -6,6 +6,6 @@ from . import views
 urlpatterns = [
     path('devices/', views.device_list),
     path('deviceSede/', views.getSede),
-    path('create_device/', views.create_device),
-    path('devicecreate/', csrf_exempt(views.device_create), name='deviceCreate'),
+    #path('create_device/', views.create_device),
+    path('devicecreate/', views.device_create),
 ]

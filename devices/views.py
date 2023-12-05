@@ -57,7 +57,7 @@ def device_create(request):
 
     return render(request, 'Device/deviceCreate.html', context)
 
-def create_device(request):
+def create_device1(request):
     if request.method == 'POST':
         form = DeviceForm(request.POST)
         if form.is_valid():

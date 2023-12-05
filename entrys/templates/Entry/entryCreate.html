@@ -1,14 +1,0 @@
-{% extends 'base.html' %} 
-{% block content %} 
-<form method="POST"> 
-    <h4 class="page-title">Entry</h4>
-    {% csrf_token %}
-    <br>
-    {{ form.as_p }} 
-    <button type="submit" class="btn btn-success waves-effect waves-light" 
-                                onClick=" window.location.href='/symptomcreate' ">Create</button>
-    <button type="button" class="btn btn-primary waves-effect waves-light"
-                                onClick=" window.location.href='/vitalSigncreate' ">Back
-    </button>
-</form> 
-{% endblock %}

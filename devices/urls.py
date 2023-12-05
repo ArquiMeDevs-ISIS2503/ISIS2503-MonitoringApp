@@ -7,5 +7,5 @@ urlpatterns = [
     path('devices/', views.device_list),
     path('deviceSede/', views.getSede),
     #path('create_device/', views.create_device),
-    path('devicecreate/', views.device_create),
+    path('create_device/', views.device_create),
 ]

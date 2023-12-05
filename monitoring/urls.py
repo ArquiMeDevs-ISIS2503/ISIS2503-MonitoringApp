@@ -29,7 +29,7 @@ urlpatterns = [
     path('', include(('symptoms.urls','symptoms'), namespace='symptoms')),
     path('', include(('vitalSigns.urls','vitalSigns'), namespace='vitalSigns')),
     path('', include(('entrys.urls','entrys'), namespace='entrys')),
-    path('', include(('devices.urls','create_device'), namespace='deviceCreate')),
+    path('', include(('devices.urls','create_device'), namespace='create_device')),
     path('health-check/', views.healthCheck),
     path(r'', include('django.contrib.auth.urls')),
     path(r'', include('social_django.urls')),

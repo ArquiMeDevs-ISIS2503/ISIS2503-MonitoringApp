@@ -25,6 +25,14 @@ def device_list(request):
     else:
         return HttpResponse("Unauthorized User")
 
+def device_list_(request):
+    devices = get_devices()
+    context = {
+        'device_list': devices
+    }
+    return render(request, 'Device/devices.html', context)
+
+
 def getSede(request):
     if request.method == 'GET':
         sede = request.GET.get('sede')

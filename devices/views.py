@@ -31,7 +31,8 @@ def getSede(request):
         sede = get_site_by_name(sede)
         devices = []
         if sede is not None:
-            devices = get_deviceSede(sede.id)
+            response = requests.get(f"http://35.225.29.96:8080/devices/sede/{sede.id}")
+            devices = response.json()
         
     context = {
         'device_list': devices,

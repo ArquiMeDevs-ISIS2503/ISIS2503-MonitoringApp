@@ -65,6 +65,7 @@ def device_create1(request):
 
     return render(request, 'Device/deviceCreate.html', context)
 
+# PRINCIPAL
 def device_create(request):
     if request.method == 'POST':
         form = DeviceForm(request.POST)
@@ -72,7 +73,7 @@ def device_create(request):
             # Suponiendo que el microservicio espera los mismos datos que DeviceForm
             response = requests.post('http://104.197.122.243:8080/create_device/', data=form.cleaned_data)
 
-            if response.status_code == 200:
+            if response.status_code == 201:
                 messages.add_message(request, messages.SUCCESS, 'Device create successful')
                 return HttpResponseRedirect(reverse('devices:deviceList'))  # Asegúrate de que este es el nombre correcto
             else:

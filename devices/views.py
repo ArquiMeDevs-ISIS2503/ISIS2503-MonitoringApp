@@ -47,7 +47,7 @@ def getSede(request):
     }
     return render(request, 'Device/devices.html', context)
 
-def device_create(request):
+def device_create1(request):
     if request.method == 'POST':
         form = DeviceForm(request.POST)
         if form.is_valid():
@@ -62,6 +62,32 @@ def device_create(request):
     context = {
         'form': form,
     }
+
+    return render(request, 'Device/deviceCreate.html', context)
+
+def device_create(request):
+    if request.method == 'POST':
+        form = DeviceForm(request.POST)
+        if form.is_valid():
+            # Suponiendo que el microservicio espera los mismos datos que DeviceForm
+            response = requests.post('http://104.197.122.243:8080/create_device/', data=form.cleaned_data)
+
+            if response.status_code == 200:
+                messages.add_message(request, messages.SUCCESS, 'Device create successful')
+                return HttpResponseRedirect(reverse('devices:deviceList'))  # Asegúrate de que este es el nombre correcto
+            else:
+                # Aquí puedes manejar la respuesta no exitosa, como mostrar un error
+                messages.add_message(request, messages.ERROR, 'Error creating device')
+        else:
+            for error in form.errors:
+                messages.error(request, f"{error}: {form.errors[error]}")
+
+    else:
+        form = DeviceForm()
+
+    context = {
+        'form': form,
+    }   
 
     return render(request, 'Device/deviceCreate.html', context)
 

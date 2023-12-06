@@ -19,7 +19,7 @@ def device_list(request):
     role = requests.post("http://10.128.0.7:8080/getRole/", headers={"Accept":"application/json"}, json=json.dumps(request.user.social_auth.get(provider="auth0"), default=json_default, sort_keys=True, indent=4)).text
     if role == "Medico":
         context = {
-            'device_list': []
+            'device_list': get_devices()
         }
         return render(request, 'Device/devices.html', context)
     else:

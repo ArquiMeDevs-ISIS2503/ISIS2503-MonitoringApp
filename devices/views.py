@@ -72,6 +72,7 @@ def device_create(request):
         if form.is_valid():
             # Suponiendo que el microservicio espera los mismos datos que DeviceForm
             response = requests.post('http://104.197.122.243:8080/create_device/', data=form.cleaned_data)
+            print(form.cleaned_data)
 
             if response.status_code == 201:
                 messages.add_message(request, messages.SUCCESS, 'Device create successful')

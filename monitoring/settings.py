@@ -38,16 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'measurements',
     'devices',
-    'variables',
-    'sites',
-    'medicines',
-    'diagnostics',
-    'symptoms',
-    'vitalSigns',
-    'entrys',
-    'social_django',
+    'sites'
 ]
 
 MIDDLEWARE = [
